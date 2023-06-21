@@ -1,0 +1,18 @@
+func isPalindrome(x int) bool {    
+    // ковертируем int  в слайс рун
+	runes := []rune(strconv.Itoa(x))
+
+    // из рун в слайс
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+
+    // обратно в int  с помощью string
+	y, err := strconv.Atoi(string(runes))
+
+    // проверка 
+	if err == nil && x == y {
+		return true		
+	} 	
+	return false    
+}
